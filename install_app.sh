@@ -22,7 +22,7 @@ if [ "$(id -u)" == "0" ]; then
 fi
 
 echo "Stopping application..."
-sudo -s supervisorctl stop atlas
+sudo -s supervisorctl stop atlas3
 
 echo "Creating and activating Virtual env..."
 
@@ -51,8 +51,8 @@ sed -i "s/GUNICORN_PORT = .*$/GUNICORN_PORT = '${gun_port}'/g" ./atlas/configura
 
 echo "Launching application..."
 DIR=$(readlink -e "${0%/*}")
-sudo -s cp  atlas-service.conf /etc/supervisor/conf.d/
-sudo -s sed -i "s%APP_PATH%${DIR}%" /etc/supervisor/conf.d/atlas-service.conf
+sudo -s cp  atlas3-service.conf /etc/supervisor/conf.d/
+sudo -s sed -i "s%APP_PATH%${DIR}%" /etc/supervisor/conf.d/atlas3-service.conf
 
 sudo -s supervisorctl reread
 sudo -s supervisorctl reload

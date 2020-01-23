@@ -15,11 +15,6 @@ robots.txt
 venv/*
 venv3/*
 
-data/ref/communes.shp
-data/ref/communes.shx
-data/ref/communes.dbf
-data/ref/communes.prj
-
 static/custom/territoire.json
 static/custom/glossaire.json
 static/custom/custom.css
@@ -35,15 +30,10 @@ static/custom/templates/introduction.html
 static/custom/templates/credits.html
 static/custom/templates/mentions-legales.html
 
-data/ref/communes.dbf
-data/ref/communes.prj
-data/ref/communes.shp
-data/ref/communes.shx
-
-data/ref/territoire.dbf
-data/ref/territoire.prj
-data/ref/territoire.shp
-data/ref/territoire.shx
+data/ref/communes.*
+data/ref/territoire.*
+data/ref/FRA_adm0.*
+data/ref/n_com*
 
 # Pycharm
 .idea/
