@@ -1,0 +1,36 @@
+#mapContainer {
+    padding-right: 0px;
+  }
+  
+  #mapStat {
+    text-align: center;
+    padding-left: 0px;
+  }
+  
+  #map {
+    height: 600px;
+  }
+  
+  #loadingGif {
+    position: relative;
+    left: 50%;
+    top: 200px;
+    z-index: 1000;
+  }
+  
+  #mapStat li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    list-style-type: none;
+  }
+  
+  #mapStat img {
+    margin-bottom: 10px;
+  }
+  
+  #mapStat ul {
+    padding: 0px;
+  }

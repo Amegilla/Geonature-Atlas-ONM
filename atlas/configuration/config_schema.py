@@ -116,6 +116,17 @@ class AtlasConfig(Schema):
         }
     )
 
+    PORTAL_PAGES = fields.Dict(
+        missing={
+            'mammiferes': {'title': "Mammifères", 
+                                'picto': 'glyphicon-book', 
+                                'order': 0,
+                                'cd_ref': '186206'},
+        }
+    )
+
+    
+
     AFFICHAGE_MAILLE = fields.Boolean(missing=False)
     ZOOM_LEVEL_POINT = fields.Integer(missing=11)
     LIMIT_CLUSTER_POINT = fields.Integer(missing=1000)

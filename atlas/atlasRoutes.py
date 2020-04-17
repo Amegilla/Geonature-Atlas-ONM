@@ -7,6 +7,7 @@ from .modeles.repositories import (
     vmObservationsRepository,
     vmAltitudesRepository,
     vmMoisRepository,
+    vmYearRepository,
     vmTaxrefRepository,
     vmCommunesRepository,
     vmObservationsMaillesRepository,
@@ -239,6 +240,44 @@ def ficheRangTaxonomie(cd_ref):
         DISPLAY_EYE_ON_LIST=False,
     )
 
+@main.route("/portailTaxo/<portal_name>", methods=["GET", "POST"])
+def fichePortailTaxonomique(portal_name):
+    '''
+    Creation d'une page pour les portail taxonomique avec des informations générales sur un groupe taxonomique
+    Les groupe taxonmique possédant un portail dédié sont à définir dans la page de config.py
+    '''
+    session = utils.loadSession()
+    connection = utils.engine.connect()
+
+    # Recupere les infos du portail depuis le dictionnaire défini dans le fichier config.py
+    portal_page = current_app.config["PORTAL_PAGES"][portal_name]
+    # recupere le cd_ref dans la config du portail
+    cd_ref = portal_page['cd_ref']
+    cd_ref = int(cd_ref)
+
+    taxon = vmTaxrefRepository.searchEspece(connection, cd_ref)# pour tests
+
+    years = vmYearRepository.getYearlyObservationsChilds(connection, cd_ref)
+
+    listTaxons = vmTaxonsRepository.getTaxonsChildsList(connection, cd_ref)
+    referenciel = vmTaxrefRepository.getInfoFromCd_ref(session, cd_ref)
+    taxonomyHierarchy = vmTaxrefRepository.getAllTaxonomy(session, cd_ref)
+    observers = vmObservationsRepository.getObservers(connection, cd_ref)
+
+    connection.close()
+    session.close()
+
+    return render_template(
+        "templates/fichePortailTaxo.html",
+        taxon=taxon,# pour tests
+        years=years,
+        portalTitle=portal_page['title'],
+        listTaxons=listTaxons,
+        referenciel=referenciel,
+        taxonomyHierarchy=taxonomyHierarchy,
+        observers=observers,
+        DISPLAY_EYE_ON_LIST=False,
+    )
 
 @main.route("/groupe/<groupe>", methods=["GET", "POST"])
 def ficheGroupe(groupe):

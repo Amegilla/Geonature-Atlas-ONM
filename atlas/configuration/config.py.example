@@ -189,3 +189,24 @@ PATRIMONIALITE = {
 STATIC_PAGES = {
     'presentation': {'title': "Présentation de l'atlas", 'picto': 'glyphicon-question-sign', 'order': 0, 'template': 'static/custom/templates/presentation.html'}
 }
+
+#####################################
+#### Pages Portails taxonomiques ####
+#####################################
+
+# nommer les portails en minuscules et sans espaces (pour lien url)
+# donner le titre de votre choix (pas trop long pour l'esthetique dans le menus déroulant)
+PORTAL_PAGES = {  
+                'chiroptere': {'title': "Chiroptères", 
+                                'picto': 'glyphicon-book', 
+                                'order': 0,
+                                'cd_ref': '186233'},
+                'mustelides': {'title': "Mustelidés", 
+                            'picto': 'glyphicon-user', 
+                            'order': 0, 
+                            'cd_ref': '186215'},
+                'lagomorphes': {'title': "Les Lagomorphes (Lapins et Lièvres)", 
+                                    'picto': 'glyphicon-user', 
+                                    'order': 0, 
+                                    'cd_ref': '186244'}
+}

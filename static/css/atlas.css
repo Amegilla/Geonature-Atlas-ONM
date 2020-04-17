@@ -520,3 +520,19 @@ input.ajax-search {
   display: inline-block;
   text-decoration: none !important;
 }
+
+
+/* PORTAILS TAXONOMIQUES : style du bouton deroulant de la sidebar */
+
+.sidebar-nav .btn-group .glyphicon{
+	margin-inline: 20px;	
+}
+
+.dropdown-menu{
+	top: 105%;
+	left: 105%;
+	background-color: #333333;
+	width: 200px;
+}
+
+/* End PORTAILS TAXONOMIQUES */
