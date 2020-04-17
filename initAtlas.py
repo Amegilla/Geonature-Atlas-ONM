@@ -87,6 +87,7 @@ if __name__ == "__main__":
     # validation de la configuration secrète
     secret_conf = read_and_validate_conf(config, SecretSchemaConf)
     app.run(
-        host="0.0.0.0", port=secret_conf["GUNICORN_PORT"], debug=app.config["modeDebug"]
+        host="0.0.0.0", port="8181", debug=app.config["modeDebug"]
     )
+    
 
