@@ -119,7 +119,7 @@ def getTaxon(session, cd_nom):
         .filter(VmTaxref.cd_nom == cd_nom)
         .one_or_none()
     )
-    return None
+    return taxon
 
 
 def getCd_sup(session, cd_ref):
