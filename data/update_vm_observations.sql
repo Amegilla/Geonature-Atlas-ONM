@@ -37,7 +37,7 @@ CREATE MATERIALIZED VIEW atlas.vm_observations AS
         diffusion_level
     FROM synthese.syntheseff s
     LEFT JOIN atlas.vm_taxref tx ON tx.cd_nom = s.cd_nom
-    JOIN atlas.t_layer_territoire m ON ST_Intersects(m.the_geom, s.the_geom_point);
+    --JOIN atlas.t_layer_territoire m ON ST_Intersects(m.the_geom, s.the_geom_point);
 
 create unique index on atlas.vm_observations (id_observation);
 create index on atlas.vm_observations (cd_ref);
